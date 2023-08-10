@@ -325,6 +325,7 @@ local antiAfk = true
 local remoteFunction = game.ReplicatedStorage.Events.Misc.SC1
 
 remoteFunction.OnClientInvoke = function()
+	wait(3)
 	if antiAfk then
 		game.ReplicatedStorage.Events.Misc.SC2:InvokeServer(remoteFunction[1] * 1500 * 10 - remoteFunction[2] * 2 * game.ReplicatedStorage.Minigames.Jackpot.JackpotPlayed.Value * game.PlaceVersion)
 	end
@@ -372,7 +373,7 @@ local autoFarmCase = false
 UpdatedAutoFarmer:AddToggle({
 
 	Name = "Enabled",
-	Default = false,
+	Default = true,
 	Callback = function(Value)
 		if Value then
 			autoFarmCase = true
