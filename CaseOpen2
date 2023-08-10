@@ -345,7 +345,7 @@ local UpdatedAutoFarmer = UpdatedAutoFarm:AddSection({
 
 
 UpdatedAutoFarmInfo:AddParagraph("How to use","Select the drop down and click what case you want to autofarm. Make sure not to click any cases(You can do case battles tho) while autofarm is active or else the game whill kick you. Dm bsblizzard on discord if you want a different case to be added to the dropdown menu")
-UpdatedAutoFarmInfo:AddParagraph("Updated AutoFarm","Once you get to $200 It will open the case you choose")
+UpdatedAutoFarmInfo:AddParagraph("Updated AutoFarm","Once you get to $200 It will open the case you choose MORPHONTOP NIGGA")
 
 
 local currentAutoFarmCase = "Skeleton Case"
