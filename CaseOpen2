@@ -373,7 +373,7 @@ local autoFarmCase = false
 UpdatedAutoFarmer:AddToggle({
 
 	Name = "Enabled",
-	Default = true,
+	Default = false,
 	Callback = function(Value)
 		if Value then
 			autoFarmCase = true
