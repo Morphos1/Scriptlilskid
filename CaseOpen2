@@ -388,6 +388,7 @@ UpdatedAutoFarmer:AddToggle({
 
 
 					else 
+						wait(TimeInBetweenCaseOpen)
 						local args = {
 							[1] = "5% Periastron Case"
 						}
