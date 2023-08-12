@@ -41,13 +41,14 @@ for _, crate in ipairs(crates) do
 	table.insert(options, name .. " ($" .. price .. ")")
 end
 local currentCase = "Free Case"
+local v91 = 0
 function check()
 	if currentCase ~= "Free Case" then
 		return true
 	end
 	local l__LocalPlayer__9 = game.Players.LocalPlayer
 	local v12 = game.ReplicatedStorage.Events.GetIndex:InvokeServer()
-	local v91 = 0
+
 	for v92, v93 in pairs(l__LocalPlayer__9.Hats:GetChildren()) do
 		if game.ReplicatedStorage.Crates.Normals["Free Case"]:FindFirstChild(v93.Name) then
 			v91 = v91 + v12[v93.Name].Price
@@ -59,21 +60,21 @@ function check()
 		return true
 	end
 end
-
-
+local v91 = 0
 function check200()
 	if currentCase ~= "Free Case" then
 		return true
 	end
+	v91 = 0
 	local l__LocalPlayer__9 = game.Players.LocalPlayer
 	local v12 = game.ReplicatedStorage.Events.GetIndex:InvokeServer()
-	local v91 = 0
 	for v92, v93 in pairs(l__LocalPlayer__9.Hats:GetChildren()) do
 		if game.ReplicatedStorage.Crates.Normals["Free Case"]:FindFirstChild(v93.Name) then
 			v91 = v91 + v12[v93.Name].Price
 		end
 	end
-	if l__LocalPlayer__9.CaseMoney.Value >= 30 or v91 >= 147 then
+	if l__LocalPlayer__9.CaseMoney.Value >= 40 or v91 >= 140 then
+		print(v91)
 		return false
 	else
 		return true
@@ -335,6 +336,7 @@ UpdatedAutoFarmInfo:AddParagraph("Updated AutoFarm","Once you get to $116.57 in 
 
 
 local currentAutoFarmCase = "Skeleton Case"
+local secondAutofarmCase = "5% Periastron Case"
 UpdatedAutoFarmer:AddDropdown({
 	Name = "Case",
 	Default = "Skeleton Case ($116.57)",
@@ -360,7 +362,6 @@ UpdatedAutoFarmer:AddToggle({
 	Name = "Enabled",
 	Default = false,
 	Callback = function(Value)
-		local checksToSeeIfPlayerHasEnoughToOpenTheSkeletonDaddyCaseUwU = 0
 		if Value then
 			autoFarmCase = true
 			OrionLib:MakeNotification({
@@ -369,8 +370,11 @@ UpdatedAutoFarmer:AddToggle({
 				Image = "rbxassetid://14264899659",
 				Time = 5
 			})
+			local val = game.Players.LocalPlayer.CaseMoney.Value + v91
 			while wait(TimeInBetweenCaseOpen) and autoFarmCase do
-				if(check200() == false) then 
+				print(Value)
+				if val  >= 140.57 then 
+					print("Selling Doubles")
 					game:GetService("ReplicatedStorage").Events.SellDoubles:InvokeServer()
 				end
 				if check200() then
@@ -381,37 +385,16 @@ UpdatedAutoFarmer:AddToggle({
 					}
 
 					game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(unpack(args))
-
-				else if game.Players.LocalPlayer.CaseMoney.Value > 116.57 then
+					if game.Players.LocalPlayer.CaseMoney.Value >= 116.57 then
 						wait(8.5)
 						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(currentAutoFarmCase, current)
-						wait(8.5)
+
 					end
 				end
 			end
-		else
-			autoFarmCase = false
-			OrionLib:MakeNotification({
-				Name = "Auto Farm Case",
-				Content = "Succesfully Disabled Auto Farm Case",
-				Image = "rbxassetid://14264899659",
-				Time = 5
-			})
 		end
 	end,
 })
---[[
-
-else 
-						wait(8.5)
-						local args = {
-							[1] = "5% Periastron Case"
-						}
-
-						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(unpack(args))
-						wait(8.5)
-
-]]--
 
 --Updated Auto Farm End
 
