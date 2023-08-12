@@ -385,6 +385,7 @@ UpdatedAutoFarmer:AddToggle({
 				else if game.Players.LocalPlayer.CaseMoney.Value > 116.57 then
 						wait(8.5)
 						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(currentAutoFarmCase, current)
+						wait(8.5)
 					end
 				end
 			end
@@ -408,6 +409,7 @@ else
 						}
 
 						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(unpack(args))
+						wait(8.5)
 
 ]]--
 
