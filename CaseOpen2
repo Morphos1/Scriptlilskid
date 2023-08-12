@@ -73,7 +73,7 @@ function check200()
 			v91 = v91 + v12[v93.Name].Price
 		end
 	end
-	if l__LocalPlayer__9.CaseMoney.Value >= 30 or v91 >= 125 then
+	if l__LocalPlayer__9.CaseMoney.Value >= 30 or v91 >= 128 then
 		return false
 	else
 		return true
@@ -388,7 +388,6 @@ UpdatedAutoFarmer:AddToggle({
 
 
 					else 
-						wait(TimeInBetweenCaseOpen)
 						local args = {
 							[1] = "5% Periastron Case"
 						}
