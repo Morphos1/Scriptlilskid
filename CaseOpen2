@@ -73,7 +73,7 @@ function check200()
 			v91 = v91 + v12[v93.Name].Price
 		end
 	end
-	if l__LocalPlayer__9.CaseMoney.Value >= 30 or v91 >= 128 then
+	if l__LocalPlayer__9.CaseMoney.Value >= 30 or v91 >= 147 then
 		return false
 	else
 		return true
@@ -383,17 +383,8 @@ UpdatedAutoFarmer:AddToggle({
 					game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(unpack(args))
 
 				else if game.Players.LocalPlayer.CaseMoney.Value > 116.57 then
+						wait(8.5)
 						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(currentAutoFarmCase, current)
-
-
-
-					else 
-						local args = {
-							[1] = "5% Periastron Case"
-						}
-
-						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(unpack(args))
-
 					end
 				end
 			end
@@ -408,6 +399,17 @@ UpdatedAutoFarmer:AddToggle({
 		end
 	end,
 })
+--[[
+
+else 
+						wait(8.5)
+						local args = {
+							[1] = "5% Periastron Case"
+						}
+
+						game:GetService("ReplicatedStorage").Events.NormalCrateOpen:FireServer(unpack(args))
+
+]]--
 
 --Updated Auto Farm End
 
